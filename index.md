@@ -1,4 +1,4 @@
-There's what looks like a better markdown explanation here: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+There's what looks like a better markdown explanation [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 This is just some text with nothing special.
 
