@@ -144,12 +144,13 @@ function incrementCondition(condition, increment) {
         currentHeat += conditions[key]["heat"][conditions[key]["current"]];
     }
     document.getElementById("totalHeat").innerHTML = currentHeat;
-    var url = "https://erikriiska.github.io/?h=";
+    var heat = "";
     var keys = Object.keys(conditions);
     for (var i = 0; i<keys.length; i++) {
-        url = url.concat(conditions[keys[i]]["current"].toString());
+        heat = heat.concat(conditions[keys[i]]["current"].toString());
     }
-    document.getElementById("shareHeat").innerHTML = url;
+    document.getElementById("shareHeat").innerHTML = heat;
+    window.history.replaceState("hoopla", "something", "?h=".concat(heat))
 }
 
 function startUp() {
@@ -316,9 +317,9 @@ function startUp() {
 
     <tr>
         <td> Tight Deadline </td>
-        <td> You have <var id="tightDeadlineEffect">0</var> minutes before taking 5 damage per second to clear each biome</td>
+        <td> You have <var id="tightDeadlineEffect">0</var> minutes to clear each biome</td>
         <td>
-            <var id="tightDeadlineHeat">inf</var> 
+            <var id="tightDeadlineHeat">0</var> 
             <button id="tightDeadlineDecrease" type="button" onclick="incrementCondition('tightDeadline', -1)" disabled> - </button> 
             <button id="tightDeadlineIncrease" type="button" onclick="incrementCondition('tightDeadline', 1)"> + </button>
         </td>
@@ -335,8 +336,8 @@ function startUp() {
 
 
 <p> Share this heat setup: 
-    <a href='<var id="shareHeat">https://erikriiska.github.io/?h=0</var>'><var id="shareHeat">https://erikriiska.github.io/?h=0</var></a>
- </p>
+    https://erikriiska.github.io/?h=<var id="shareHeat">0</var>
+</p>
 
 </body>
 </html>
