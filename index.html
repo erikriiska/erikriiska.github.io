@@ -5,12 +5,15 @@
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
+  white-space: nowrap;
 }
 th, td {
   padding: 5px;
+  white-space: nowrap;
 }
 th {
   text-align: left;
+  white-space: nowrap;
 }
 </style>
 </head>
@@ -330,14 +333,13 @@ function startUp() {
 
 <p>Total Heat: <var id="totalHeat">0</var></p>
 
-<script>
-    startUp();
-</script>
-
-
 <p> Share this heat setup: <br>
      https://erikriiska.github.io/?h=<var id="shareHeat">0</var>
 </p>
+
+<script>
+    startUp();
+</script>
 
 </body>
 </html>
