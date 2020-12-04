@@ -144,7 +144,7 @@ function incrementCondition(condition, increment) {
         currentHeat += conditions[key]["heat"][conditions[key]["current"]];
     }
     document.getElementById("totalHeat").innerHTML = currentHeat;
-    var url = "erikriiska.github.io/?h=";
+    var url = "https://erikriiska.github.io/?h=";
     var keys = Object.keys(conditions);
     for (var i = 0; i<keys.length; i++) {
         url = url.concat(conditions[keys[i]]["current"].toString());
@@ -334,7 +334,9 @@ function startUp() {
 </script>
 
 
-<p> Share this heat setup: <var id="shareHeat">erikriiska.github.io/?h=0</var> </p>
+<p> Share this heat setup: 
+    <a href='<var id="shareHeat">https://erikriiska.github.io/?h=0</var>'><var id="shareHeat">https://erikriiska.github.io/?h=0</var></a>
+ </p>
 
 </body>
 </html>
