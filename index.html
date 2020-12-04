@@ -144,7 +144,28 @@ function incrementCondition(condition, increment) {
         currentHeat += conditions[key]["heat"][conditions[key]["current"]];
     }
     document.getElementById("totalHeat").innerHTML = currentHeat;
+    var url = "erikriiska.github.io/?h=";
+    var keys = Object.keys(conditions);
+    for (var i = 0; i<keys.length; i++) {
+        url = url.concat(conditions[keys[i]]["current"].toString());
+    }
+    document.getElementById("shareHeat").innerHTML = url;
 }
+
+function startUp() {
+    var params = new URLSearchParams(window.location.search);
+    var h = params.get("h");
+    if (h != null) {
+        var keys = Object.keys(conditions);
+        for (var i = 0; i < h.length; i++) {
+            console.log(h[i]);
+            for (var j = 0 ; j < parseInt(h[i]); j++) {
+                incrementCondition(keys[i], 1);
+            }
+        }
+    }
+}
+
 </script>
 
 <table style="width:100%">
@@ -307,6 +328,13 @@ function incrementCondition(condition, increment) {
 </table>
 
 <p>Total Heat: <var id="totalHeat">0</var></p>
+
+<script>
+    startUp();
+</script>
+
+
+<p> Share this heat setup: <var id="shareHeat">erikriiska.github.io/?h=0</var> </p>
 
 </body>
 </html>
